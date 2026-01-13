@@ -1,6 +1,6 @@
 // /src/components/Draft.js
 import React, { useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import "./SankranthiWishes.css";
 import banner from "../assets/sankranti-banner.jpg";
 
@@ -14,39 +14,39 @@ const Draft = ({ darkMode, }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    handleRegister();
+    // handleRegister();
   }, []);
 
-  const handleRegister = async (e) => {
+  // const handleRegister = async (e) => {
 
-    // Fetch user's IP address
-    const ipResponse = await axios.get('https://api64.ipify.org?format=json');
-    const userIP = ipResponse.data.ip;
+  //   // Fetch user's IP address
+  //   const ipResponse = await axios.get('https://api64.ipify.org?format=json');
+  //   const userIP = ipResponse.data.ip;
 
-    // Fetch user's location based on IP
-    const locationResponse = await axios.get(`https://ipapi.co/${userIP}/json/`);
-    // const { city, region, country_name, latitude, longitude } = locationResponse.data;
-    console.log('location', userIP, locationResponse.data );
+  //   // Fetch user's location based on IP
+  //   const locationResponse = await axios.get(`https://ipapi.co/${userIP}/json/`);
+  //   // const { city, region, country_name, latitude, longitude } = locationResponse.data;
+  //   console.log('location', userIP, locationResponse.data );
 
-    const formData = new FormData();
+  //   const formData = new FormData();
 
-    // formData.append('address', JSON.stringify(address));
-    formData.append('ip', userIP);
-    // formData.append('location', JSON.stringify({ city, region, country_name, latitude, longitude }));
-    formData.append('location', locationResponse.data);
+  //   // formData.append('address', JSON.stringify(address));
+  //   formData.append('ip', userIP);
+  //   // formData.append('location', JSON.stringify({ city, region, country_name, latitude, longitude }));
+  //   formData.append('location', locationResponse.data);
 
-    try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/draft/visit-data`, {ip: userIP, location: locationResponse.data});
-      // setSuccess(`visited user`);
-      if (response.status === 201) {
-        // window.location.href = '/login';
-      }
-    } catch (error) {
-      // setError(error.response.data.message || 'An error occurred during registration.');
-    } finally {
-      // setLoading(false);
-    }
-  };
+  //   try {
+  //     const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/draft/visit-data`, {ip: userIP, location: locationResponse.data});
+  //     // setSuccess(`visited user`);
+  //     if (response.status === 201) {
+  //       // window.location.href = '/login';
+  //     }
+  //   } catch (error) {
+  //     // setError(error.response.data.message || 'An error occurred during registration.');
+  //   } finally {
+  //     // setLoading(false);
+  //   }
+  // };
 
 
   return (
