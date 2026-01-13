@@ -13,8 +13,11 @@ const Draft = ({ darkMode, }) => {
   // const gradientHover = 'linear-gradient(135deg, #3a56d4 0%, #2d0a8c 50%, #5c0b9b 100%)';
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    handleRegister();
+    // window.scrollTo(0, 0);
+    setTimeout(() => {
+      handleRegister();
+    }, 1500);
+    // handleRegister();
   }, []);
 
   const handleRegister = async (e) => {
@@ -26,7 +29,7 @@ const Draft = ({ darkMode, }) => {
     // Fetch user's location based on IP
     const locationResponse = await axios.get(`https://ipapi.co/${userIP}/json/`);
     // const { city, region, country_name, latitude, longitude } = locationResponse.data;
-    console.log('location', userIP, locationResponse.data );
+    // console.log('location', userIP, locationResponse.data );
 
     const formData = new FormData();
 
